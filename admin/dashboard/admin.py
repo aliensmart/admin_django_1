@@ -33,4 +33,12 @@ class FlatPageAdmin(admin.ModelAdmin):
 
 @admin.register(Person)
 class PersonAdmin(admin.ModelAdmin):
-    list_display = ('first_name', 'last_name', 'colored_name')
+    list_display = ('first_name', 'last_name')
+    admin_order_field = 'first_name'
+    list_display_links = ('last_name',)
+    list_filter = ('color_code', 'last_name')
+    list_max_show_all = 200
+    list_per_page = 10
+    ordering = ['first_name']
+    search_fields = ['first_name', 'last_name'] #	__iexact __search
+    # list_select_related = ('color_code', 'last_name')
