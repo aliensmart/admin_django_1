@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Author
+from .models import Author, Person
 
 # Register your models here.
 @admin.register(Author)
@@ -30,3 +30,7 @@ class AuthorAdmin(admin.ModelAdmin):
 
 class FlatPageAdmin(admin.ModelAdmin):
     fields = ('url', 'title', 'content')
+
+@admin.register(Person)
+class PersonAdmin(admin.ModelAdmin):
+    list_display = ('first_name', 'last_name', 'colored_name')
